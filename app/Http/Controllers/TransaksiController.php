@@ -33,7 +33,7 @@ class TransaksiController extends Controller
     {
 
         $list_mobil = Mobil::select('nama', 'mmid')
-                    ->where('tersedia', '==', '1')
+                    ->where('tersedia', '=', '1')
                     ->get();
         
         return view('transaksi_tambah', compact('list_mobil'));
