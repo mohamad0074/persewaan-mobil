@@ -1,5 +1,4 @@
 <!doctype html>
-<!-- cek : {{ asset('js/app.js') }} -->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -8,17 +7,16 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Persewaan Mobil') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    
+    <!-- jQuery -->
+    <script src="{!! asset('js/plugins/jquery.min.js') !!}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
           <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}">
           <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
@@ -69,12 +67,7 @@
         </li>
         <li class="nav-item px-3">
           <a style="font-weight: bold;" class="nav-link" href="{{ url('/transaksi') }}">
-            Order Sewa
-          </a>
-        </li>
-        <li class="nav-item px-3">
-          <a class="nav-link" href="{{ url('/') }}">
-            Pages
+            My Order
           </a>
         </li>
         @endguest

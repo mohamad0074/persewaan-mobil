@@ -49,3 +49,5 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/transaksi/list_item', 'TransaksiController@list_item');
     Route::get('/transaksi/edit/{id}', 'TransaksiController@edit');
     Route::get('/transaksi/hapus/{id}', 'TransaksiController@delete');
+    Route::get('/transaksi/retur', 'TransaksiController@retur');
+    Route::post('/transaksi/update_retur', 'TransaksiController@update_retur');

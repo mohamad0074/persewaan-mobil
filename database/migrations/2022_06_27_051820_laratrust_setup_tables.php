@@ -42,7 +42,7 @@ class LaratrustSetupTables extends Migration
             $table->string('nama')->nullable();
             $table->string('no_plat')->nullable();
             $table->decimal('tarif');
-            $table->boolean('tersedia')->default(0);
+            $table->boolean('tersedia')->default(1);
             $table->timestamps();
         });
 
@@ -52,6 +52,7 @@ class LaratrustSetupTables extends Migration
             $table->integer('id');
             $table->date('tgl_mulai');
             $table->date('tgl_akhir');
+            $table->boolean('is_done')->default(0);
             $table->timestamps();
         });
 

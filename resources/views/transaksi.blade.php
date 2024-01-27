@@ -12,24 +12,26 @@
 		<div class="row" style="width: 900px !important;">
               <div class="col-md-4">
                 <div class="input-group input-group-dynamic mb-4">
-                  <input class="form-control" type="text" name="merk" placeholder="Merk transaksi .." value="{{ old('merk') }}">
+                  <input class="form-control" type="text" name="merk" placeholder="Merk Mobil .." value="{{ old('merk') }}">
                 </div>
               </div>
               <div class="col-md-4 ps-2">
                 <div class="input-group input-group-dynamic">
-                  <input type="text" class="form-control" name="model"  placeholder="Model transaksi">
+                  <input type="text" class="form-control" name="model"  placeholder="Model Mobil">
                 </div>
               </div>
-              <div class="col-md-4 ps-2">
+              <!-- <div class="col-md-4 ps-2">
                 <div class="input-group input-group-dynamic">
                   <input type="checkbox" name="tersedia" value="1"> &nbsp;&nbsp;<label >Tersedia</label>
                 </div>
-              </div>
+              </div> -->
             </div>
 
            <div style="padding-left: 30px;">
-			<input type="submit" class="btn btn-primary" value="CARI">
-			<a href="/transaksi/tambah" class="btn btn-primary">Tambah transaksi</a>
+      			<input type="submit" class="btn btn-primary" value="CARI"><br>
+
+      			<a href="/transaksi/tambah" class="btn btn-primary">Sewa Mobil</a>
+            <a href="/transaksi/retur" class="btn btn-primary">Kembalikan Mobil</a>
 			</div>
 		</div>
 	</div>
@@ -44,6 +46,9 @@
           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">NAMA</th>
           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">NO. PLAT</th>
           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">TARIF</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">AWAL SEWA</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">AKHIR SEWA</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">STATUS</th>
           <th></th>
         </tr>
       </thead>
@@ -79,6 +84,22 @@
           </td>
           <td>
             <p class="text-xs font-weight-normal mb-0">{{ $p->tarif }}</p>
+          </td>
+          <td class="align-middle text-center">
+            <div class="d-flex align-items-center">
+              <span class="me-2 text-xs">{{ $p->tgl_mulai }}</span>
+            </div>
+          </td>
+          <td class="align-middle text-center">
+            <div class="d-flex align-items-center">
+              <span class="me-2 text-xs">{{ $p->tgl_akhir }}</span>
+            </div>
+          </td>
+          <td>
+            <span class="badge badge-dot me-4">
+              <i class="bg-info"></i>
+              <span class="text-dark text-xs">{{ ($p->is_done == '1') ? 'Selesai' : 'Masih Pinjam' }}</span>
+            </span>
           </td>
 
           <td class="align-middle">

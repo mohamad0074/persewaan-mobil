@@ -21,7 +21,9 @@ class TransaksiController extends Controller
         
         // echo 'ad : '.auth()->user()->id;
         $transaksi = Transaksi::select('*')
-            ->get();
+                    ->join('mst_mobil', 'mst_mobil.mmid', '=', 'mst_transaksi.mmid')
+                    ->where('mst_transaksi.id', '=' , auth()->user()->id)
+                    ->get();
         
         return view('transaksi', compact('transaksi'));
 
@@ -103,6 +105,44 @@ class TransaksiController extends Controller
                 
         $pegawai->save();
         return redirect('/admin/list_item');
+    }
+
+
+    public function retur()
+    {
+
+        $list_mobil = Mobil::select('nama', 'mmid')
+                    ->where('tersedia', '==', '1')
+                    ->get();
+        
+        return view('transaksi_tambah_retur', compact('list_mobil'));
+        // return view('transaksi_tambah');
+    }
+
+
+     public function update_retur( Request $request)
+    {
+
+        $mmid = Mobil::select('mmid')
+                ->where('no_plat','like',"%".$request->no_plat."%")
+                ->limit(1)
+                ->first();
+// dd($mmid->mmid);
+        if($mmid){
+            $trans = DB::table('mst_transaksi')
+                    ->where('mmid', '=', $mmid->mmid)
+                    ->update(array('is_done' => '1'));
+            
+            if($trans){
+                $up_tersedia = DB::table('mst_mobil')
+                        ->where('mmid', '=', $mmid->mmid)
+
+                        ->update(array('tersedia' => '1'));
+            }            
+        }
+
+
+        return redirect('/transaksi');
     }
 
 }

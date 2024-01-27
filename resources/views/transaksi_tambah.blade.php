@@ -6,7 +6,7 @@
   <div class="container py-4">
     <div class="row">
       <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
-        <h3 class="text-center">Order Sewa Mobil</h3>
+        <h3 class="text-center">Sewa Mobil</h3>
         <form method="post" action="/transaksi/store" enctype="multipart/form-data">
         	{{ csrf_field() }}
           <div class="card-body">

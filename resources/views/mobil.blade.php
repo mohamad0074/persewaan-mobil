@@ -44,6 +44,7 @@
           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">NAMA</th>
           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">NO. PLAT</th>
           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">TARIF</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">TERSEDIA</th>
           <th></th>
         </tr>
       </thead>
@@ -79,6 +80,12 @@
           </td>
           <td>
             <p class="text-xs font-weight-normal mb-0">{{ $p->tarif }}</p>
+          </td>
+          <td>
+            <span class="badge badge-dot me-4">
+              <i class="bg-info"></i>
+              <span class="text-dark text-xs">{{ ($p->tersedia == '1') ? 'Available' : 'Booked' }}</span>
+            </span>
           </td>
 
           <td class="align-middle">
