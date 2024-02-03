@@ -17,3 +17,18 @@ php artisan migrate:fresh
 ```
 php artisan db:seed
 ```
+
+Untuk login admin :
+admin@sample.com
+admin123
+
+Untuk login klien :
+
+klien1@sample.com
+klien123
+
+klien2@sample.com
+klien123
+
+klien3@sample.com
+klien123
